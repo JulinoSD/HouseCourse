@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 // import { useRouter } from "next/router";
 // import Link from "next/link";
 // import { Image } from "cloudinary-react";
-// import { SearchBox } from "./searchBox";
+import { SearchBox } from "./searchBox";
 // import {
 //   CreateHouseMutation,
 //   CreateHouseMutationVariables,
@@ -30,7 +30,10 @@ interface IProps {
 export default function HouseForm({ }: IProps) {
     const [submitting, setSubmitting] = useState(false);
 
-    const { register, handleSubmit, setValue, errors, watch } = useForm<IFormData>({ defaultValues: {} })
+    const { register, handleSubmit, setValue, errors, watch } = useForm<IFormData>
+    ({ defaultValues: {} })
+
+    const address = watch("address")
 
     useEffect(() => {
         register({ name: "address" }, { required: "Please enter you address" });
@@ -38,20 +41,27 @@ export default function HouseForm({ }: IProps) {
         register({ name: "longitude" }, { required: true, min: -180, max: 180 });
     }, [register]);
 
-    const handleCreate = async(data: IFormData) => {} 
+    const handleCreate = async (data: IFormData) => { }
 
     const onSubmit = (data: IFormData) => {
         setSubmitting(false);
         handleCreate(data);
     }
 
-    return <form className="max-auto max-w-xl py-4" onSubmit={handleSubmit(onSubmit)}>
+    return <form className="mx-auto max-w-xl py-4" onSubmit={handleSubmit(onSubmit)}>
         <h1 className="text-xl">Add a new house</h1>
 
         <div className="mt-4">
             <label htmlFor="search" className="block">Search for you address</label>
-            {/* Search field */}
+            <SearchBox onSelectAddress={(address, latitude, longitude) => {
+                setValue("address", address);
+                setValue("latitude", latitude);
+                setValue("longitude", longitude);
+            }}
+            defaultValue=""
+            />
             {errors.address && <p>{errors.address.message}</p>}
+            <h2>{address}</h2>
         </div>
     </form>
 }
