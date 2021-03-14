@@ -11,13 +11,13 @@ generator client {
 }
 
 model House {
-  id        Int      @id @default(autoincrement())
-  userId    String   @map(name: "user_id")
-  image     String
-  latitude  Float
+  id Int @id @default(autoincrement())
+  userId String @map(name: "user_id")
+  image String
+  latitude Float
   longitude Float
-  address   String
-  bedrooms  Int
+  address String
+  bedrooms Int
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @default(now()) @map(name: "updated_at")
 
