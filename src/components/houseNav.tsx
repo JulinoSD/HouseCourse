@@ -4,4 +4,11 @@
 // import { useAuth } from "src/auth/useAuth";
 // import { DeleteHouse, DeleteHouseVariables } from "src/generated/DeleteHouse";
 
-export {};
+interface HousProps{
+    house: string
+}
+
+export const HouseNav = ({ }: HousProps) => {
+    return null
+};
+export default HouseNav;

@@ -3,4 +3,11 @@
 // import ReactMapGL, { Marker, NavigationControl } from "react-map-gl";
 // import "mapbox-gl/dist/mapbox-gl.css";
 
-export {};
+interface SingleProps {
+    house: string,
+    nearby: string,
+}
+
+export default function SingleMap({}: SingleProps){
+    return null;
+}
