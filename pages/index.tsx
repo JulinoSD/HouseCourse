@@ -1,5 +1,5 @@
 // import { useState } from "react";
-// import { useQuery, gql } from "@apollo/client";
+import { useQuery, gql } from "@apollo/client";
 // import { useDebounce } from "use-debounce";
 import Layout from "src/components/layout";
 import Map from "src/components/map";
@@ -8,7 +8,9 @@ import Map from "src/components/map";
 // import { useLocalState } from "src/utils/useLocalState";
 // import { HousesQuery, HousesQueryVariables } from "src/generated/HousesQuery";
 
+
 export default function Home() {
+
   return <Layout main={
     <div className="flex">
       <div
