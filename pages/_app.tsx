@@ -6,17 +6,16 @@ import { AuthProvider } from "src/auth/useAuth";
 import "../styles/index.css";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-
-  const client = useApollo()
+  const client = useApollo();
 
   return (
     <AuthProvider>
       <ApolloProvider client={client}>
-      <Head>
-        <title>Home Sweet Home</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Component {...pageProps} />
+        <Head>
+          <title>Home Sweet Home</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Component {...pageProps} />
       </ApolloProvider>
     </AuthProvider>
   );

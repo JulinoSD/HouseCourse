@@ -7,24 +7,24 @@ import { prisma } from "src/prisma";
 import { loadIdToken } from "src/auth/firebaseAdmin";
 
 const server = new ApolloServer({
-    schema,
-    context: async({req}: {req: NextApiRequest}): Promise<Context> => {
-        const uid = await loadIdToken(req);
+  schema,
+  context: async ({ req }: { req: NextApiRequest }): Promise<Context> => {
+    const uid = await loadIdToken(req);
 
-        return {
-            uid,
-            prisma
-        };
-    },
-    tracing: process.env.NODE_ENV === "development"
-})
+    return {
+      uid,
+      prisma,
+    };
+  },
+  tracing: process.env.NODE_ENV === "development",
+});
 
-const handler = server.createHandler({ path: "/api/graphql"})
+const handler = server.createHandler({ path: "/api/graphql" });
 
 export const config = {
-    api:{
-        bodyParser: false,
-    }
-}
+  api: {
+    bodyParser: false,
+  },
+};
 
 export default handler;
