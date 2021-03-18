@@ -59,7 +59,7 @@ export default function Home() {
       main={
         <div className="flex">
           <div
-            className="w-1/2 pb-4"
+            className="w-1/3 pb-4"
             style={{ maxHeight: "calc(100vh - 64px)", overflowX: "scroll" }}
           >
             <HouseList
@@ -67,7 +67,7 @@ export default function Home() {
               setHighlightedId={setHighlightedId}
             />
           </div>
-          <div className="w-1/2">
+          <div className="w-2/3">
             <Map
               setDataBounds={setDataBounds}
               houses={lastData ? lastData.houses : []}
